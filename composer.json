@@ -1,0 +1,25 @@
+{
+  "name": "kollway/alidayu",
+  "type": "library",
+  "description": "Alidayu Service Provider for Laravel",
+  "keywords": ["laravel","alidayu"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "kollway",
+      "email": "app@kollway.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ],
+    "psr-0": {
+      "Kollway\\Alidayu\\": "src/"
+    }
+  }
+
+}
