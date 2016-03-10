@@ -13,15 +13,10 @@ date_default_timezone_set('Asia/Shanghai');
 
 class Alidayu {
 
-    private $httpdns;
     private $topclient;
 
     public function __construct() {
         $this->topclient = new \TopClient(env('ALIDAYU_APP_KEY'), env('ALIDAYU_SECRETKEY'));
-
-        $this->httpdns = new \HttpdnsGetRequest();
-        $this->topclient = new \ClusterTopClient(env('ALIDAYU_APP_KEY'), env('ALIDAYU_SECRETKEY'));
-        $this->topclient->gatewayUrl = "http://api.daily.taobao.net/router/rest";
     }
 
     public function sendSms($phone, $template_code, Array $msg_param=null) {
