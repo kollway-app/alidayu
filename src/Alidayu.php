@@ -19,10 +19,12 @@ class Alidayu {
         $this->topclient = new \TopClient(env('ALIDAYU_APP_KEY'), env('ALIDAYU_SECRETKEY'));
     }
 
-    public function sendSms($phone, $template_code, Array $msg_param=null) {
+    public function sendSms($phone, $template_code, Array $msg_param=null, $sign=null) {
+        $sign = $sign ?: env('ALIDAYU_SIGN');
+
         $req = new \AlibabaAliqinFcSmsNumSendRequest();
         $req->setSmsType('normal');
-        $req->setSmsFreeSignName(env('ALIDAYU_SIGN'));
+        $req->setSmsFreeSignName($sign);
 
         if($msg_param) {
             $msg_param_json = json_encode($msg_param);
